@@ -1,3 +1,5 @@
+run:
+  go: "1.24"
 linters:
   # disable-all: true
   # enable-all: true
@@ -11,9 +13,7 @@ linters:
     - unused
 linters-settings:
   errcheck:
-    exclude-functions:
-      - (github.com/go-kit/log.Logger).Log
-      - (github.com/openshift/telemeter/vendor/github.com/go-kit/log.Logger).Log
+    exclude: .errcheck_excludes.txt
   govet:
     # disable for those few tests calling t.Fatal from withing go routine.
     disable:
